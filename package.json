@@ -1,29 +1,82 @@
 {
+  /* Nombre del proyecto (identificador del paquete en Node.js) */
   "name": "bienesraices",
+
+  /* Versión del proyecto (convención SemVer: major.minor.patch) */
   "version": "1.0.0",
+
+  /* Descripción general del proyecto */
   "description": "Curso Desarrollo Web Completo",
+
+  /* Archivo principal del proyecto (punto de entrada)
+     En este caso se referencia el gulpfile para tareas de automatización */
   "main": "gulpfile.js",
+
+  /* Scripts personalizados que puedes ejecutar desde consola con:
+     npm run <nombre_script> */
   "scripts": {
+    /* Script de desarrollo:
+       Ejecuta Gulp (tareas de CSS, JS, imágenes y watch) */
     "dev": "gulp"
   },
+
+  /* Autor del proyecto (en este caso el creador del curso) */
   "author": "Juan De La Torre",
+
+  /* Licencia del proyecto (define permisos de uso/distribución) */
   "license": "ISC",
+
+  /* Dependencias de desarrollo:
+     Son librerías usadas para compilar, optimizar y automatizar,
+     pero no son necesarias en producción (solo en el entorno de desarrollo) */
   "devDependencies": {
+    /* Minificador de CSS (reduce el peso del archivo final) */
     "cssnano": "^5.1.0",
+
+    /* Motor principal de tareas automatizadas */
     "gulp": "^4.0.2",
+
+    /* (Ojo) Plugin de autoprefixer para Gulp
+       Nota: en tu gulpfile usas autoprefixer vía postcss directamente */
     "gulp-autoprefixer": "^8.0.0",
+
+    /* Cache para que tareas como imagemin no reprocesen archivos iguales */
     "gulp-cache": "^1.1.3",
+
+    /* Limpieza de archivos/carpeta (actualmente no lo usas en el gulpfile) */
     "gulp-clean": "^0.4.0",
+
+    /* Une múltiples archivos en uno solo (ej: bundle.js) */
     "gulp-concat": "^2.6.1",
+
+    /* Optimiza y comprime imágenes */
     "gulp-imagemin": "^7.1.0",
+
+    /* Notificaciones del sistema al terminar tareas */
     "gulp-notify": "^4.0.0",
+
+    /* Permite usar PostCSS dentro de Gulp */
     "gulp-postcss": "^9.0.1",
+
+    /* Renombra archivos (ej: agrega .min) */
     "gulp-rename": "^2.0.0",
+
+    /* Integra SASS con Gulp */
     "gulp-sass": "^5.1.0",
+
+    /* Genera sourcemaps para depurar en navegador */
     "gulp-sourcemaps": "^3.0.0",
+
+    /* Minificador de JavaScript (versión adaptada para Gulp) */
     "gulp-terser-js": "^5.2.2",
+
+    /* Convierte imágenes a formato WebP */
     "gulp-webp": "^4.0.1",
+
+    /* Compilador oficial de SASS (Dart Sass) */
     "sass": "^1.49.9",
+
+    /* Motor de minificación de JavaScript (dependencia interna de terser) */
     "terser": "^4.8.0"
   }
 }

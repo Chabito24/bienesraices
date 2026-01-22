@@ -1,34 +1,77 @@
+/* ================================
+   BARRA (LOGO + NAVEGACIÓN)
+   ================================ */
+
+/* .barra:
+   Contenedor que normalmente incluye el logo y el menú de navegación */
 .barra {
+    /* Activa Flexbox para alinear elementos */
     display: flex;
+
+    /* En móvil: se organizan en columna (uno debajo del otro) */
     flex-direction: column;
+
+    /* Separación superior para dar aire al header */
     padding-top: 3rem;
+
+    /* Desde tablet en adelante cambia la distribución */
     @include tablet {
+        /* En pantallas medianas/grandes: elementos en fila (lado a lado) */
         flex-direction: row;
+
+        /* Se separan al máximo:
+           logo a la izquierda y menú a la derecha */
         justify-content: space-between;
     }
 }
 
-.navegacion { 
+/* ================================
+   NAVEGACIÓN (MENÚ)
+   ================================ */
 
+/* .navegacion:
+   Contenedor de los links del menú */
+.navegacion {
+
+    /* Desde tablet en adelante ajusta la disposición del menú */
     @include tablet {
-        display: flex; 
+        /* Los enlaces se alinean horizontalmente */
+        display: flex;
+
+        /* Alinea verticalmente los links al centro */
         align-items: center;
     }
 
-    a { 
+    /* Estilos para cada link dentro de .navegacion */
+    a {
+        /* Color blanco para buen contraste sobre el header */
         color: $blanco;
+
+        /* Quita el subrayado por defecto */
         text-decoration: none;
+
+        /* Tamaño de letra más grande en móvil */
         font-size: 2.2rem;
+
+        /* Hace que el link sea un bloque (más fácil de tocar en móvil) */
         display: block;
+
+        /* Centra el texto en móvil */
         text-align: center;
 
+        /* Ajustes específicos desde tablet */
         @include tablet {
+            /* Espaciado entre links */
             margin-right: 2rem;
+
+            /* Reduce un poco el tamaño para pantallas grandes */
             font-size: 1.8rem;
 
+            /* Al último enlace le quita el margen derecho
+               para evitar espacio extra al final */
             &:last-of-type {
                 margin-right: 0;
             }
         }
-        }
-    }  
+    }
+}

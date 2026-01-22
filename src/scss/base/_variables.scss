@@ -1,25 +1,53 @@
+/* ================================
+   VARIABLES GLOBALES (SCSS)
+   ================================ */
+
+/* Importa la fuente "Lato" desde Google Fonts
+   - Incluye los pesos: 300, 400, 700 y 900 */
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
+// -------------------------------
 // Fuentes
+// -------------------------------
+
+/* Fuente principal del proyecto
+   - Se usará en la mayoría del sitio (body, títulos, etc.) */
 $fuente_principal: 'Lato', sans-serif;
 
-// Tamaño de Media Queries
+// -------------------------------
+// Tamaños de Media Queries
+// -------------------------------
+
+/* Breakpoint para teléfonos (pantallas pequeñas) */
 $telefono: 480px;
+
+/* Breakpoint para tablets (pantallas medianas) */
 $tablet: 768px;
+
+/* Breakpoint para escritorio (pantallas grandes) */
 $desktop: 1024px;
 
+// -------------------------------
 // Colores
-$negro: #000000;
-$amarillo: #E08709;;
-$verde: #71B100;
-$blanco: #FFFFFF;
-$gris: #e1e1e1;
-$grisOscuro: #333333;
+// -------------------------------
 
+/* Colores base del proyecto */
+$negro: #000000;      // Texto principal o fondos oscuros
+$amarillo: #E08709;;  // Color de acento (ojo: tiene doble punto y coma)
+$verde: #71B100;      // Color secundario o de éxito/confirmación
+$blanco: #FFFFFF;     // Fondo claro y contraste
+$gris: #e1e1e1;       // Bordes, separadores, fondos suaves
+$grisOscuro: #333333; // Texto oscuro alternativo o fondos
+
+/* Separación general del diseño (espaciados y márgenes) */
 $separacion: 5rem;
 
-// Fuentes
-$delgada: 300;
-$regular : 400;
-$bold: 700;
-$black: 900
+// -------------------------------
+// Pesos de fuente
+// -------------------------------
+
+/* Pesos de tipografía disponibles según la fuente importada */
+$delgada: 300;  // Texto liviano
+$regular : 400; // Texto normal (ojo: hay un espacio antes de los dos puntos)
+$bold: 700;     // Texto en negrita
+$black: 900;    // Texto extra negrita

@@ -1,23 +1,45 @@
 /** Media Queries **/
+/* ================================
+   MIXINS (REUTILIZABLES)
+   ================================ */
+
+/** Media Queries **/
+/* Mixin para estilos desde tamaño "teléfono" en adelante
+   - Usa la variable $telefono como breakpoint mínimo
+   - @content permite insertar estilos dentro del mixin */
 @mixin telefono {
     @media (min-width: #{$telefono}) {
-        @content;
+        @content; // Aquí se inyecta el bloque de estilos que uses al llamar el mixin
     }
 }
 
+/* Mixin para estilos desde tamaño "tablet" en adelante
+   - Usa la variable $tablet como breakpoint mínimo */
 @mixin tablet {
     @media (min-width: #{$tablet}) {
-        @content;
+        @content; // Inserta los estilos definidos dentro del mixin
     }
 }
-  
+
+/* Mixin para estilos desde tamaño "desktop" en adelante
+   - Usa la variable $desktop como breakpoint mínimo */
 @mixin desktop {
     @media (min-width: #{$desktop}) {
-        @content;
+        @content; // Inserta el bloque de estilos personalizado
     }
 }
+
+/* Mixin para crear un grid de forma rápida y parametrizable
+   - $columnas: número de columnas del grid
+   - $espaciado: separación (gap) entre filas y columnas */
 @mixin grid($columnas, $espaciado ) {
+    /* Activa CSS Grid en el contenedor */
     display: grid;
+
+    /* Espacio entre columnas y filas */
     gap: $espaciado;
+
+    /* Define la cantidad de columnas:
+       repeat($columnas, 1fr) crea columnas del mismo tamaño */
     grid-template-columns: repeat($columnas, 1fr);
 }

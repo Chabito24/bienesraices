@@ -1,12 +1,26 @@
+/* ================================
+   FOOTER (PIE DE PÁGINA)
+   ================================ */
+
+/* Contenedor principal del footer */
 .footer {
+    /* Espaciado interno (arriba y abajo):
+       - $separacion / 2 define un padding proporcional al sistema de espaciado del proyecto
+       - 0 indica que no hay padding lateral */
     padding: $separacion /2 0;
+
+    /* Color de fondo del footer usando variable SCSS */
     background-color: $grisOscuro;
 
+    /* Contenedor interno del footer (generalmente para alinear contenido y navegación) */
     .contenedor-footer {
+        /* Espaciado superior adicional para separar el contenido dentro del footer */
         padding-top: $separacion /2;
     }
 
+    /* Texto de derechos reservados */
     .copyright {
+        /* Color blanco para contrastar con el fondo oscuro */
         color: $blanco;
     }
 }

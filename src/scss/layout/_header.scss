@@ -1,42 +1,78 @@
+/* ================================
+   HEADER (ENCABEZADO)
+   ================================ */
+
+/* Cuando el navegador NO soporta WebP:
+   se aplica la imagen JPG como fondo en la clase .inicio */
 .no-webp .inicio {
     background-image: url(../img/header.jpg);
 }
 
+/* Cuando el navegador SÍ soporta WebP:
+   se aplica la imagen WebP como fondo en la clase .inicio */
 .webp .inicio {
     background-image: url(../img/header.webp);
 }
 
+/* Estilos generales del header */
 .header {
+    /* Color de fondo por defecto (útil mientras carga la imagen o en otras páginas) */
     background-color: $grisOscuro;
+
+    /* Padding: 1rem arriba, 0 laterales, 3rem abajo */
     padding: 1rem 0 3rem 0;
 
+    /* &.inicio significa: .header.inicio
+       Se aplica solo cuando el header tenga ambas clases */
     &.inicio {
+        /* Centra la imagen de fondo */
         background-position: center center;
+
+        /* Hace que la imagen cubra todo el espacio disponible */
         background-size: cover;
         
+        /* Desde tablet en adelante se define una altura mínima */
         @include tablet {
             min-height: 70rem;
         }
 
+        /* Estilos específicos para el contenedor interno del header */
         .contenido-header {
-             @include tablet {
-        min-height: 70rem;
-    }
+            /* En tablet también se fuerza el alto mínimo
+               (sirve para alinear bien el contenido con flex) */
+            @include tablet {
+                min-height: 70rem;
+            }
         }
     }
 }
 
+/* Contenido interno del header (texto, navegación, etc.) */
 .contenido-header {
+    /* Flexbox para organizar el contenido de forma vertical */
     display: flex;
+
+    /* Elementos en columna (uno debajo del otro) */
     flex-direction: column;
+
+    /* Distribuye el contenido dejando espacio entre el top (barra) y el h1 */
     justify-content: space-between;
 
+    /* Estilos del título principal dentro del header */
     h1 {
+        /* Alinea el texto a la izquierda */
         text-align: left;
+
+        /* Color blanco para contraste con el fondo */
         color: $blanco;
+
+        /* Peso del texto usando variable SCSS */
         font-weight: $bold;
+
+        /* Espaciado vertical entre líneas */
         line-height: 1.5;
+
+        /* Limita el ancho para mejor lectura y estética */
         max-width: 60rem;
     }
-    
 }

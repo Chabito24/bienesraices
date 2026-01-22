@@ -1,7 +1,22 @@
+/* ================================
+   UTILIDADES (CLASES REUTILIZABLES)
+   ================================ */
+
+/* .seccion:
+   Se usa para dar separación vertical estándar entre secciones del sitio
+   - Aplica margen superior e inferior usando la variable $separacion */
 .seccion {
+    /* Margen superior con la mitad del valor definido en $separacion */
     margin-top: calc($separacion / 2);
+
+    /* Margen inferior con la mitad del valor definido en $separacion */
     margin-bottom: calc($separacion / 2);
 }
+
+/* .contenido-centrado:
+   Sirve para limitar el ancho del contenido y hacerlo más legible
+   (útil para textos largos, artículos, secciones de lectura) */
 .contenido-centrado {
+    /* Define un ancho máximo fijo para que no se estire demasiado en pantallas grandes */
     max-width: 800px;
 }

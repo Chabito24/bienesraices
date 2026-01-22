@@ -1,11 +1,41 @@
+/* ================================
+   app.scss (ARCHIVO PRINCIPAL)
+   ================================ */
+
+/* Importa el archivo normalize:
+   - Sirve para “normalizar” estilos entre navegadores
+   - Evita diferencias visuales entre Chrome, Firefox, Edge, etc. */
 @import 'base/normalize';
+
+/* Importa las variables globales del proyecto:
+   - Fuentes, colores, breakpoints, separaciones, etc. */
 @import 'base/variables';
+
+/* Importa mixins reutilizables:
+   - Media queries (telefono, tablet, desktop)
+   - Grid u otras ayudas */
 @import 'base/mixins';
+
+/* Importa los estilos globales:
+   - body, h1-h4, p, imágenes, contenedor, etc. */
 @import 'base/globales';
+
+/* Importa utilidades generales:
+   - clases como .seccion, .contenido-centrado, etc. */
 @import 'base/utilidades';
 
-/** UI **/
+/** ================================
+    UI (ESTILOS DE LA INTERFAZ)
+    ================================ **/
 
+/* Importa el layout del header:
+   - Fondo, imagen, títulos, estructura del encabezado */
 @import 'layout/header';
+
+/* Importa el layout del footer:
+   - Fondo, navegación del footer, copyright, etc. */
 @import 'layout/footer';
+
+/* Importa el layout de navegación:
+   - Estilos de la barra y links del menú */
 @import 'layout/navegacion';
