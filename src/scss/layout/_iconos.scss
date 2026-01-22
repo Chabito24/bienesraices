@@ -1,0 +1,19 @@
+@include tablet {
+    .iconos-nosotros {
+        @include grid(3, 2rem);
+    }
+}
+
+
+
+.icono { /*llamamos la clase icono del index.html*/
+    text-align: center; /* Centra el texto */
+
+    img { /*etiqueta html img*/
+        height: 10rem; /*tamaño de la imagen*/
+    }
+
+    h3 { /*etiqueta html h3*/
+        text-transform: uppercase; /*Transforma el texto del h3 en mayusculas*/
+    }
+}

@@ -24,6 +24,10 @@
    - clases como .seccion, .contenido-centrado, etc. */
 @import 'base/utilidades';
 
+/* importa estilos asociados a los botones:
+   - estilo boton de anuncios*/
+@import 'layout/botones';
+
 /** ================================
     UI (ESTILOS DE LA INTERFAZ)
     ================================ **/
@@ -39,3 +43,10 @@
 /* Importa el layout de navegación:
    - Estilos de la barra y links del menú */
 @import 'layout/navegacion';
+
+/*Importa el layout de los iconos:
+  -etilos iconos y contenido iconosdel index.html*/
+@import 'layout/iconos';
+
+/*Importa el layout de los anuncios del index.html*/
+@import 'layout/anuncios'
