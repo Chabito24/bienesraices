@@ -20,3 +20,8 @@
     /* Define un ancho máximo fijo para que no se estire demasiado en pantallas grandes */
     max-width: 800px;
 }
+
+.alinear-derecha {
+   display: flex;
+    justify-content: flex-end;
+}

@@ -43,3 +43,22 @@
        repeat($columnas, 1fr) crea columnas del mismo tamaño */
     grid-template-columns: repeat($columnas, 1fr);
 }
+
+
+/* Mixin pa botones asignado a los anuncios en el index.html
+
+*/
+@mixin boton($bgColor, $display) {
+    background-color: $bgColor;
+    color: $blanco;
+    font-weight: $bold;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: $separacion / 2;
+    display: $display;
+
+    &:hover {
+        background-color: darken($bgColor, 5);
+    }
+}
