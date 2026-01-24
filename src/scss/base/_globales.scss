@@ -1,101 +1,65 @@
+@use 'variables' as *;
+@use 'sass:math';
+
 /* ================================
    ESTILOS GLOBALES (BASE)
    ================================ */
 
-/* Ajusta el tamaño base de la tipografía:
-   62.5% equivale a 10px aprox (si el navegador usa 16px por defecto)
-   Esto facilita trabajar con rem: 1rem = 10px */
 html {
-    font-size: 62.5%;
-
-    /* Hace que el padding y border se incluyan dentro del ancho/alto total */
-    box-sizing: border-box;
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-/* Aplica box-sizing heredado a todos los elementos y pseudoelementos
-   para tener medidas más predecibles en todo el proyecto */
 *, *:before, *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-/* Estilos generales del body (texto global del sitio) */
 body {
-    /* Fuente principal definida como variable en SCSS */
-    font-family: $fuente_principal;
-
-    /* Tamaño base del texto general */
-    font-size: 1.6rem;
-
-    /* Altura de línea para mejorar legibilidad */
-    line-height: 1.8;
+  font-family: $fuente_principal;
+  font-size: 1.6rem;
+  line-height: 1.8;
 }
 
-/* Estilos por defecto para los párrafos */
 p {
-    /* Color del texto usando variable SCSS */
-    color: $negro;
-
-    /* Tamaño de letra para párrafos */
-    font-size: 2rem;
+  color: $negro;
+  font-size: 2rem;
 }
 
-/* Clase contenedor:
-   Se usa para centrar el contenido y limitar el ancho máximo */
 .contenedor {
-    /* Ocupa el 95% del ancho disponible */
-    width: 95%;
-
-    /* Limita el ancho máximo en pantallas grandes */
-    max-width: 120rem;
-
-    /* Centra el contenedor automáticamente (izquierda y derecha) */
-    margin: 0 auto;
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
 }
 
-/* Estilos generales para enlaces */
 a {
-    /* Quita el subrayado típico de los links */
-    text-decoration: none;
+  text-decoration: none;
 }
 
-/* Ajusta imágenes y picture para que sean responsivos */
 img,
 picture {
-    /* Ocupan el 100% del contenedor */
-    width: 100%;
-
-    /* Evita espacios raros debajo de las imágenes (display inline por defecto) */
-    display: block;
+  width: 100%;
+  display: block;
 }
 
-/* Estilos generales para títulos h1, h2 y h3 */
 h1, h2, h3 {
-    /* Fuente principal del proyecto */
-    font-family: $fuente_principal;
-
-    /* Margen vertical dinámico basado en la variable de separación */
-    margin: calc($separacion / 2) 0;
-
-    /* Peso de letra más liviano para una apariencia moderna */
-    font-weight: 300;
-
-    /* Centra el texto */
-    text-align: center;
+  font-family: $fuente_principal;
+  margin: math.div($separacion, 2) 0;
+  font-weight: 300;
+  text-align: center;
 }
 
-/* Tamaños específicos para cada encabezado */
 h1 {
-    font-size: 3.8rem; /* Título principal */
+  font-size: 3.8rem;
 }
 
 h2 {
-    font-size: 3.4rem; /* Subtítulo importante */
+  font-size: 3.4rem;
 }
 
 h3 {
-    font-size: 3rem; /* Subtítulo secundario */
+  font-size: 3rem;
 }
 
 h4 {
-    font-size: 2.6rem; /* Título más pequeño */
+  font-size: 2.6rem;
 }

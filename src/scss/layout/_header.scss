@@ -1,3 +1,9 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+
+/* Layout */
+
 /* ================================
    HEADER (ENCABEZADO)
    ================================ */
@@ -75,4 +81,8 @@
         /* Limita el ancho para mejor lectura y estética */
         max-width: 60rem;
     }
+}
+
+body {
+  font-family: $fuente_principal;
 }

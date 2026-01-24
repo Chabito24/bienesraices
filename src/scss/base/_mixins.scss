@@ -1,64 +1,57 @@
-/** Media Queries **/
+@use 'variables' as *;
+@use 'sass:math';
+@use 'sass:color';
+
 /* ================================
    MIXINS (REUTILIZABLES)
    ================================ */
 
-/** Media Queries **/
 /* Mixin para estilos desde tamaño "teléfono" en adelante
    - Usa la variable $telefono como breakpoint mínimo
    - @content permite insertar estilos dentro del mixin */
 @mixin telefono {
-    @media (min-width: #{$telefono}) {
-        @content; // Aquí se inyecta el bloque de estilos que uses al llamar el mixin
-    }
+  @media (min-width: #{$telefono}) {
+    @content;
+  }
 }
 
 /* Mixin para estilos desde tamaño "tablet" en adelante
    - Usa la variable $tablet como breakpoint mínimo */
 @mixin tablet {
-    @media (min-width: #{$tablet}) {
-        @content; // Inserta los estilos definidos dentro del mixin
-    }
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
 }
 
 /* Mixin para estilos desde tamaño "desktop" en adelante
    - Usa la variable $desktop como breakpoint mínimo */
 @mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content; // Inserta el bloque de estilos personalizado
-    }
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 
 /* Mixin para crear un grid de forma rápida y parametrizable
    - $columnas: número de columnas del grid
    - $espaciado: separación (gap) entre filas y columnas */
-@mixin grid($columnas, $espaciado ) {
-    /* Activa CSS Grid en el contenedor */
-    display: grid;
-
-    /* Espacio entre columnas y filas */
-    gap: $espaciado;
-
-    /* Define la cantidad de columnas:
-       repeat($columnas, 1fr) crea columnas del mismo tamaño */
-    grid-template-columns: repeat($columnas, 1fr);
+@mixin grid($columnas, $espaciado) {
+  display: grid;
+  gap: $espaciado;
+  grid-template-columns: repeat($columnas, 1fr);
 }
 
-
-/* Mixin pa botones asignado a los anuncios en el index.html
-
-*/
+/* Mixin para botones (usado en anuncios, etc.) */
 @mixin boton($bgColor, $display) {
-    background-color: $bgColor;
-    color: $blanco;
-    font-weight: $bold;
-    text-decoration: none;
-    padding: 1rem 3rem;
-    text-align: center;
-    margin-top: $separacion / 2;
-    display: $display;
+  background-color: $bgColor;
+  color: $blanco;
+  font-weight: $bold;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-top: math.div($separacion, 2);
+  display: $display;
 
-    &:hover {
-        background-color: darken($bgColor, 5);
-    }
+  &:hover {
+    background-color: color.adjust($bgColor, $lightness: -5%);
+  }
 }

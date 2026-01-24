@@ -1,3 +1,6 @@
+@use 'variables' as *;
+@use 'sass:math';
+
 /* ================================
    UTILIDADES (CLASES REUTILIZABLES)
    ================================ */
@@ -7,10 +10,11 @@
    - Aplica margen superior e inferior usando la variable $separacion */
 .seccion {
     /* Margen superior con la mitad del valor definido en $separacion */
-    margin-top: calc($separacion / 2);
+    margin-top: math.div($separacion, 2);
+
 
     /* Margen inferior con la mitad del valor definido en $separacion */
-    margin-bottom: calc($separacion / 2);
+    margin-bottom: math.div($separacion, 2);
 }
 
 /* .contenido-centrado:

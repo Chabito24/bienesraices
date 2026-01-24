@@ -2,53 +2,25 @@
    app.scss (ARCHIVO PRINCIPAL)
    ================================ */
 
-/* Importa el archivo normalize:
-   - Sirve para “normalizar” estilos entre navegadores
-   - Evita diferencias visuales entre Chrome, Firefox, Edge, etc. */
-@import 'base/normalize';
+/* IMPORTANTE:
+   - TODOS los @use deben ir al inicio del archivo.
+   - NO mezclar @import con @use.
+*/
 
-/* Importa las variables globales del proyecto:
-   - Fuentes, colores, breakpoints, separaciones, etc. */
-@import 'base/variables';
+/* Base */
+@use 'base/normalize';
+@use 'base/variables' as *;
+@use 'base/mixins' as *;
+@use 'base/globales';
+@use 'base/utilidades';
 
-/* Importa mixins reutilizables:
-   - Media queries (telefono, tablet, desktop)
-   - Grid u otras ayudas */
-@import 'base/mixins';
-
-/* Importa los estilos globales:
-   - body, h1-h4, p, imágenes, contenedor, etc. */
-@import 'base/globales';
-
-/* Importa utilidades generales:
-   - clases como .seccion, .contenido-centrado, etc. */
-@import 'base/utilidades';
-
-/* importa estilos asociados a los botones:
-   - estilo boton de anuncios*/
-@import 'layout/botones';
-
-/** ================================
-    UI (ESTILOS DE LA INTERFAZ)
-    ================================ **/
-
-/* Importa el layout del header:
-   - Fondo, imagen, títulos, estructura del encabezado */
-@import 'layout/header';
-
-/* Importa el layout del footer:
-   - Fondo, navegación del footer, copyright, etc. */
-@import 'layout/footer';
-
-/* Importa el layout de navegación:
-   - Estilos de la barra y links del menú */
-@import 'layout/navegacion';
-
-/*Importa el layout de los iconos:
-  -etilos iconos y contenido iconosdel index.html*/
-@import 'layout/iconos';
-
-/*Importa el layout de los anuncios del index.html*/
-@import 'layout/anuncios';
-
-@import 'layout/contactar';
+/* Layout */
+@use 'layout/botones';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navegacion';
+@use 'layout/iconos';
+@use 'layout/anuncios';
+@use 'layout/contactar';
+@use 'sass:math';
+@use 'sass:color';

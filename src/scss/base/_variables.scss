@@ -2,10 +2,6 @@
    VARIABLES GLOBALES (SCSS)
    ================================ */
 
-/* Importa la fuente "Lato" desde Google Fonts
-   - Incluye los pesos: 300, 400, 700 y 900 */
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
-
 // -------------------------------
 // Fuentes
 // -------------------------------
@@ -32,12 +28,12 @@ $desktop: 1024px;
 // -------------------------------
 
 /* Colores base del proyecto */
-$negro: #000000;      // Texto principal o fondos oscuros
-$amarillo: #E08709;;  // Color de acento (ojo: tiene doble punto y coma)
-$verde: #71B100;      // Color secundario o de éxito/confirmación
-$blanco: #FFFFFF;     // Fondo claro y contraste
-$gris: #e1e1e1;       // Bordes, separadores, fondos suaves
-$grisOscuro: #333333; // Texto oscuro alternativo o fondos
+$negro: #000000;       // Texto principal o fondos oscuros
+$amarillo: #e08709;    // Color de acento
+$verde: #71b100;       // Color secundario o de éxito/confirmación
+$blanco: #ffffff;      // Fondo claro y contraste
+$gris: #e1e1e1;        // Bordes, separadores, fondos suaves
+$grisOscuro: #333333;  // Texto oscuro alternativo o fondos
 
 /* Separación general del diseño (espaciados y márgenes) */
 $separacion: 5rem;
@@ -47,7 +43,7 @@ $separacion: 5rem;
 // -------------------------------
 
 /* Pesos de tipografía disponibles según la fuente importada */
-$delgada: 300;  // Texto liviano
-$regular : 400; // Texto normal (ojo: hay un espacio antes de los dos puntos)
-$bold: 700;     // Texto en negrita
-$black: 900;    // Texto extra negrita
+$delgada: 300;   // Texto liviano
+$regular: 400;   // Texto normal
+$bold: 700;      // Texto en negrita
+$black: 900;     // Texto extra negrita

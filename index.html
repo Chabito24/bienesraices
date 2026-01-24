@@ -6,12 +6,17 @@
 
     <!-- Hace que el diseño sea responsive (se adapte correctamente a celulares, tablets y PC) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 
     <!-- Título que aparece en la pestaña del navegador -->
     <title>Bienes Raices</title>
 
     <!-- Enlace al archivo CSS final compilado en la carpeta build -->
     <link rel="stylesheet" href="build/css/app.css"> <!-- Agregamos el app.css del build -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -180,6 +185,22 @@
         <p>Llena el formulario de contacto y un asesor se comunicará contigo a la brevedad</p>
         <a href="contacto.html" class="boton-amarillo-inlineblock ">Contactános</a>
     </section>
+
+    <div class="contenedor seccion">
+        <section class="blog">
+            <h3>blog</h3>
+
+            <article>
+                <div class="entrada-blog">
+                    <picture>
+                        <source srcset="build/img/blog1.webp type="image/webp">
+                        <source srcset="build/img/blog1.jpg type="image/jepg">
+                        <img loading="lazy" src="build/img/blog1.jpg" alt="entrada blog">
+                    </picture>
+                </div>
+            </article>
+        </section>
+    </div>
 
     <!-- Footer / pie de página -->
     <footer class="footer seccion">

@@ -1,3 +1,9 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+
+/* Layout */
+
 .no-webp .imagen-contacto {
     background-image: url(../img/encuentra.jpg);
 }

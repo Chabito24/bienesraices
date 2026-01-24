@@ -1,3 +1,9 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use 'sass:color';
+
+
+
 @include tablet {
     .contenedor-anuncios {
         @include grid(3, 2rem);
@@ -5,8 +11,8 @@
 }
 
 .anuncio {
-    background-color: lighten($gris, 5);
-    border: 1px solid darken($gris, 10);
+    background-color: color.adjust($gris, $lightness: 5%);
+    border: 1px solid color.adjust($gris, $lightness: -10%);
 
     .contenido-anuncio{
         padding: 2rem;
