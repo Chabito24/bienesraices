@@ -4,7 +4,7 @@
 
 const { src, dest, watch, series, parallel } = require("gulp");
 
-// Dart Sass (API moderna)
+// SCSS (Dart Sass - API moderna)
 const sass = require("gulp-sass")(require("sass"));
 
 // PostCSS + plugins
@@ -33,12 +33,15 @@ const notify = require("gulp-notify");
 const paths = {
   // Compila solo el entrypoint (evita compilar parciales _*.scss)
   scss: "src/scss/app.scss",
+  scssAll: "src/scss/**/*.scss",
+
   js: "src/js/**/*.js",
+
   imagenes: "src/img/**/*",
 };
 
 // ================================
-// TAREA: CSS (COMPILAR SCSS + POSTCSS + SOURCEMAPS)
+// TAREA: CSS (SCSS + POSTCSS + SOURCEMAPS)
 // ================================
 
 function css() {
@@ -46,7 +49,7 @@ function css() {
     .pipe(sourcemaps.init())
     .pipe(
       sass({
-        // outputStyle: "expanded", // opcional
+        // outputStyle: "expanded", // opcional (expanded | compressed)
       }).on("error", sass.logError)
     )
     .pipe(postcss([autoprefixer(), cssnano()]))
@@ -95,7 +98,7 @@ function versionWebp() {
 // ================================
 
 function watchArchivos() {
-  watch("src/scss/**/*.scss", css);
+  watch(paths.scssAll, css);
   watch(paths.js, javascript);
   watch(paths.imagenes, series(imagenes, versionWebp));
 }
@@ -104,7 +107,10 @@ function watchArchivos() {
 // TAREAS AGRUPADAS
 // ================================
 
-const build = parallel(css, javascript, imagenes, versionWebp);
+// Build: compila todo y TERMINA
+const build = series(css, javascript, imagenes, versionWebp);
+
+// Dev: compila y se queda escuchando (WATCH)
 const dev = series(build, watchArchivos);
 
 // ================================
@@ -120,5 +126,5 @@ exports.watchArchivos = watchArchivos;
 exports.build = build;
 exports.dev = dev;
 
-// Default: compila todo y queda en watch
+// Default: modo dev
 exports.default = dev;
