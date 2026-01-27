@@ -22,6 +22,7 @@
 
     /* Color de fondo del footer usando variable SCSS */
     background-color: $grisOscuro;
+    margin-bottom: 0;
 
     /* Contenedor interno del footer (generalmente para alinear contenido y navegación) */
     .contenedor-footer {
@@ -30,8 +31,10 @@
     }
 
     /* Texto de derechos reservados */
-    .copyright {
+    .copyright, p {
         /* Color blanco para contrastar con el fondo oscuro */
         color: $blanco;
+        text-align: center;
+        font-size: 1.5rem;
     }
 }

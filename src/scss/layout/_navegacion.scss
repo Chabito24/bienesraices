@@ -1,5 +1,7 @@
 @use '../base/variables' as *;
 @use '../base/mixins' as *;
+@use 'sass:math';
+@use 'sass:color';
 
 /* Layout */
 
@@ -79,5 +81,10 @@
                 margin-right: 0;
             }
         }
+        &:hover{
+            color: color.adjust($verde, $lightness: 10%);
+        }
     }
 }
+
+
