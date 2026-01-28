@@ -31,30 +31,49 @@
         font-weight: 1.2rem;
     }
 
-    .precio {
+    
+}
+
+.precio {
         color: $verde;
         font-weight: $bold;
         font-size: 3rem;
     }
-}
 
 .iconos-caracteristicas {
-    display: flex;
-    list-style: none;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0; // opcional: quita margen por defecto del ul
 
-    li{
+    li {
         flex: 1;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;                
 
         img {
             flex: 0 0 3rem;
-            margin-right: 1rem;
+            margin: 0;
         }
+
         p {
-            font-weight: $black;
-            font-size: 1.4rem;
+        font-weight: $black;
+        font-size: 1.4rem;
+        justify-content: center;
+        align-items: center;
 
         }
-    }
+  }
+}
+
+.resumen-propiedad {
+  .precio {
+    text-align: center;
+  }
+
+  p.justify {
+    text-align: justify;
+  }
 }
