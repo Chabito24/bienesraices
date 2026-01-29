@@ -43,7 +43,9 @@
    Contenedor de los links del menú */
 .navegacion {
 
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s ease-in-out, opacity 0.5s linear;
 
     /* Desde tablet en adelante ajusta la disposición del menú */
     @include tablet {
@@ -52,6 +54,8 @@
 
         /* Alinea verticalmente los links al centro */
         align-items: center;
+        opacity: 1;
+        visibility: visible;
     }
 
     /* Estilos para cada link dentro de .navegacion */
@@ -99,10 +103,19 @@
     }
 
     img {
-        width: 5rem;
+        padding-top: 2rem;
+        width: 3rem;
     }
 }
 
 .mostrar {
-    display: block;
+    // display: flex;
+    // flex-direction: column;
+    
+    // @include tablet {
+    //     flex-direction: row;
+    // }
+
+    visibility: visible;
+    opacity: 1;
 }
