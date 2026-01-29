@@ -2,6 +2,7 @@
 // IMPORTACIONES Y CONFIGURACIÓN BASE
 // ================================
 
+console.log("✅ Gulpfile correcto cargado");
 const { src, dest, watch, series, parallel } = require("gulp");
 
 // SCSS (Dart Sass - API moderna)
@@ -17,7 +18,7 @@ const sourcemaps = require("gulp-sourcemaps");
 
 // JS
 const concat = require("gulp-concat");
-const terser = require("gulp-terser-js");
+const terser = require("gulp-terser");
 const rename = require("gulp-rename");
 
 // Imágenes

@@ -19,6 +19,8 @@
     /* En móvil: se organizan en columna (uno debajo del otro) */
     flex-direction: column;
 
+    align-items: center;
+
     /* Separación superior para dar aire al header */
     padding-top: 3rem;
 
@@ -40,6 +42,8 @@
 /* .navegacion:
    Contenedor de los links del menú */
 .navegacion {
+
+    display: none;
 
     /* Desde tablet en adelante ajusta la disposición del menú */
     @include tablet {
@@ -87,4 +91,15 @@
     }
 }
 
+/** Menu de hamburguesa */
+
+.mobile-menu {
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 5rem;
+    }
+}
 
