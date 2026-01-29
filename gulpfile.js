@@ -66,7 +66,7 @@ function javascript() {
   return src(paths.js)
     .pipe(sourcemaps.init())
     .pipe(concat("bundle.js"))
-    .pipe(terser())
+    .pipe(terser({ ecma: 2020, module: true }))
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("."))
     .pipe(dest("build/js"));
