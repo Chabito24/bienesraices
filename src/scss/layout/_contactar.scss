@@ -1,33 +1,39 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
+@use 'base/normalize'; // Importa normalize.css para uniformar estilos base entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $separacion, $black, $blanco)
+@use 'base/mixins' as *; // Importa mixins del proyecto (no se usan aquí, pero quedan disponibles)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper del proyecto
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica a este layout)
+@use 'sass:math'; // Importa módulo math (no se usa aquí, pero no afecta)
+@use 'sass:color'; // Importa módulo color (no se usa aquí, pero no afecta)
 
 
-/* Layout */
+/* Layout */ // Sección: estilos de layout/estructura para el bloque de contacto
 
-.no-webp .imagen-contacto {
-    background-image: url(../img/encuentra.jpg);
+.no-webp .imagen-contacto { // Si el navegador NO soporta WebP, usa imagen JPG/JPEG
+    background-image: url(../img/encuentra.jpg); // Fondo alternativo en formato jpg
 }
 
-.webp .imagen-contacto {
-    background-image: url(../img/encuentra.webp);
+.webp .imagen-contacto { // Si el navegador soporta WebP, usa la versión WebP
+    background-image: url(../img/encuentra.webp); // Fondo en formato webp (mejor compresión)
 }
 
-.imagen-contacto{
-    background-position: center center;
-    background-size: cover;
-    padding: $separacion * 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.imagen-contacto{ // Contenedor principal del bloque de imagen de contacto
+    background-position: center center; // Centra la imagen de fondo horizontal y verticalmente
+    background-size: cover; // Escala la imagen para cubrir todo el contenedor sin deformarla
+    padding: $separacion * 2; // Padding interno basado en variable (doble separación)
+    display: flex; // Usa flexbox para alinear el contenido interno
+    flex-direction: column; // Organiza los hijos en columna (de arriba hacia abajo)
+    align-items: center; // Centra horizontalmente los elementos hijos
 
-    h2 {
-        font-size: 4rem;
-        font-weight: $black;
-        color: $blanco;
+    h2 { // Estilos del título dentro del bloque
+        font-size: 4rem; // Tamaño grande para resaltar el título
+        font-weight: $black; // Peso tipográfico fuerte (según variable)
+        color: $blanco; // Texto blanco para contraste sobre imagen
     }
 
-    p {
-        color: $blanco;
+    p { // Estilos de párrafos dentro del bloque
+        color: $blanco; // Texto blanco para contraste sobre imagen
     }
 }
 

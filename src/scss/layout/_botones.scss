@@ -1,14 +1,20 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
+@use 'base/normalize'; // Importa normalize.css para estandarizar estilos base entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $amarillo, $verde)
+@use 'base/mixins' as *; // Importa mixins sin prefijo (ej: boton())
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades (clases helper) del proyecto
+@use 'base/darkMode'; // Importa estilos del modo oscuro
+@use 'sass:math'; // Importa módulo math (no se usa aquí, pero no afecta)
+@use 'sass:color'; // Importa módulo color (no se usa aquí, pero no afecta)
 
-.boton-amarillo {
-  @include boton($amarillo, block);
+.boton-amarillo { // Clase para botón con estilo amarillo
+  @include boton($amarillo, block); // Aplica mixin 'boton' con color amarillo y display: block
 }
 
-.boton-verde {
-  @include boton($verde, inline-block);
+.boton-verde { // Clase para botón con estilo verde
+  @include boton($verde, inline-block); // Aplica mixin 'boton' con color verde y display: inline-block
 }
 
-.boton-amarillo-inlineblock {
-  @include boton($amarillo, inline-block);
+.boton-amarillo-inlineblock { // Variante amarilla con display inline-block (para no ocupar todo el ancho)
+  @include boton($amarillo, inline-block); // Aplica mixin 'boton' con color amarillo y display: inline-block
 }

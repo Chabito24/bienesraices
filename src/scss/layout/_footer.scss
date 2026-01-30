@@ -1,7 +1,11 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use 'base/normalize'; // Importa normalize.css para uniformar estilos base entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $separacion, $black, $blanco)
+@use 'base/mixins' as *; // Importa mixins del proyecto (no se usan aquí, pero quedan disponibles)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper del proyecto
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica a este layout)
+@use 'sass:math'; // Importa módulo math (no se usa aquí, pero no afecta)
+@use 'sass:color'; // Importa módulo color (no se usa aquí, pero no afecta)
 
 
 
@@ -22,7 +26,7 @@
 
     /* Color de fondo del footer usando variable SCSS */
     background-color: $grisOscuro;
-    margin-bottom: 0;
+    margin-bottom: 0; //Elimina el margen
 
     /* Contenedor interno del footer (generalmente para alinear contenido y navegación) */
     .contenedor-footer {
@@ -30,18 +34,20 @@
         margin-top: math.div($separacion, 2) 0;
     }
 
-    .navegacion {
-        visibility: visible;
-        opacity: 1;
-        height: auto;
-    }
+ .navegacion { // Contenedor del menú de navegación (estado visible)
+    visibility: visible; // Hace el elemento visible (a diferencia de hidden, permite mostrarse)
+    opacity: 1; // Opacidad completa (100% visible), útil si se anima con transiciones
+    height: auto; // Altura automática según el contenido (recupera su tamaño natural)
+}
+
 
     /* Texto de derechos reservados */
     .copyright, p {
         /* Color blanco para contrastar con el fondo oscuro */
         color: $blanco;
-        text-align: center;
-        font-size: 1.5rem;
+        text-align: center; // Centra horizontalmente el texto dentro del elemento
+        font-size: 1.5rem; // Define el tamaño de fuente en 1.5rem (≈ 15px si 1rem ≈ 10px)
+
     }
 
 }

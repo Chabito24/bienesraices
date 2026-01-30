@@ -1,44 +1,44 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use '../base/variables' as *; // Importa variables globales (colores, tamaños, etc.) sin prefijo
+@use '../base/mixins' as *; // Importa mixins reutilizables sin prefijo
+@use 'sass:math'; // Importa módulo math de Sass (operaciones matemáticas)
+@use 'sass:color'; // Importa módulo color de Sass (ajustes de color como adjust)
 
-.dark-mode {
-    background-color: color.adjust($grisOscuro, $lightness: 5%);
+.dark-mode { // Estilos aplicados cuando el <body> (u otro contenedor) tiene la clase .dark-mode
+    background-color: color.adjust($grisOscuro, $lightness: 5%); // Aclara ligeramente el gris oscuro para el fondo general
 
-    p {
-        color: $blanco;
+    p { // Estilos para todos los párrafos dentro de .dark-mode
+        color: $blanco; // Texto de párrafos en blanco para mejor contraste
     }
 
-    a, h1, h2, h3, h4, blockquote {
-        color: $gris;
+    a, h1, h2, h3, h4, blockquote { // Estilos para links, títulos y blockquote dentro de .dark-mode
+        color: $gris; // Color gris claro para texto general (títulos/enlaces/citas)
     }
 
-    .anuncio {
-        background-color: color.adjust($grisOscuro, $lightness: 3%);
-        border: 1px solid $grisOscuro;
+    .anuncio { // Estilos para el bloque/anuncio dentro del modo oscuro
+        background-color: color.adjust($grisOscuro, $lightness: 3%); // Fondo ligeramente más claro que el base del dark mode
+        border: 1px solid $grisOscuro; // Borde con el gris oscuro base para delimitar sin alto contraste
 
-        .precio {
-            color: $verde;
+        .precio { // Estilos para el precio dentro de .anuncio
+            color: $verde; // Mantiene el precio resaltado en verde
         }
-        .icono {
-        filter: invert(70%);
+        .icono { // Estilos para íconos dentro de .anuncio
+        filter: invert(70%); // Invierte el color del ícono para que se vea mejor sobre fondo oscuro
     }
     }
 
-    .formulario {
-        label,
-        legend,
-        p {
-            color: $gris;
+    .formulario { // Estilos para formularios dentro de .dark-mode
+        label, // Labels del formulario
+        legend, // Legend de fieldset
+        p { // Párrafos dentro del formulario
+            color: $gris; // Texto del formulario en gris para buena legibilidad
         }
 
-        input:not([type="submit"]), 
-        textarea, 
-        select {
-            background-color: color.adjust($grisOscuro, $lightness: -5%);
-            border: 1px solid $grisOscuro;
-            color: $blanco;
+        input:not([type="submit"]),  // Inputs excepto el submit (para no alterar el botón)
+        textarea,  // Área de texto
+        select { // Selects desplegables
+            background-color: color.adjust($grisOscuro, $lightness: -5%); // Oscurece un poco el fondo de inputs para diferenciarlos
+            border: 1px solid $grisOscuro; // Borde oscuro consistente con el tema
+            color: $blanco; // Texto dentro de inputs en blanco para contraste
         }
     }
 }

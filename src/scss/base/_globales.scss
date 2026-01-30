@@ -1,65 +1,66 @@
-@use 'variables' as *;
-@use 'sass:math';
+@use 'variables' as *; // Importa las variables definidas en 'variables' sin prefijo (acceso directo a $variables)
+@use 'sass:math'; // Importa el módulo math de Sass para operaciones como divisiones seguras
 
-/* ================================
-   ESTILOS GLOBALES (BASE)
+/* ================================ 
+   ESTILOS GLOBALES (BASE) 
    ================================ */
 
-html {
-  font-size: 62.5%;
-  box-sizing: border-box;
+html { // Define ajustes base del documento y facilita el uso de rem
+  font-size: 62.5%; // 62.5% de 16px ≈ 10px, así 1rem ≈ 10px para cálculos más simples
+  box-sizing: border-box; // Cambia el box model para incluir padding y border en el ancho/alto
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*, *:before, *:after { // Aplica box-sizing a todos los elementos y pseudo-elementos
+  box-sizing: inherit; // Hereda border-box desde html para mantener consistencia en el layout
 }
 
-body {
-  font-family: $fuente_principal;
-  font-size: 1.6rem;
-  line-height: 1.8;
+body { // Estilos base del cuerpo del documento
+  font-family: $fuente_principal; // Define la fuente principal del sitio (variable centralizada)
+  font-size: 1.6rem; // Tamaño base de texto del body (≈ 16px si 1rem ≈ 10px)
+  line-height: 1.8; // Altura de línea para mejorar legibilidad general
 }
 
-p {
-  color: $negro;
-  font-size: 2rem;
+p { // Estilos base para párrafos
+  color: $negro; // Color de texto por defecto para párrafos
+  font-size: 2rem; // Tamaño de texto de párrafos (≈ 20px)
 }
 
-.contenedor {
-  width: 95%;
-  max-width: 120rem;
-  margin: 0 auto;
+.contenedor { // Clase utilitaria para centrar y limitar el ancho del contenido
+  width: 95%; // Usa casi todo el ancho disponible en pantallas pequeñas
+  max-width: 120rem; // Limita el ancho máximo (≈ 1200px) en pantallas grandes
+  margin: 0 auto; // Centra horizontalmente el contenedor
 }
 
-a {
-  text-decoration: none;
+a { // Estilos base para enlaces
+  text-decoration: none; // Elimina el subrayado por defecto
 }
 
-img,
-picture {
-  width: 100%;
-  display: block;
+img, // Aplica los mismos estilos a imágenes
+picture { // Aplica los mismos estilos al contenedor picture
+  width: 100%; // Fuerza a ocupar el ancho del contenedor (responsive)
+  display: block; // Evita espacio extra debajo (comportamiento inline) y mejora control de layout
 }
 
-h1, h2, h3 {
-  font-family: $fuente_principal;
-  margin: math.div($separacion, 2) 0;
-  font-weight: 300;
-  text-align: center;
+h1, h2, h3 { // Estilos comunes para encabezados principales
+  font-family: $fuente_principal; // Mantiene consistencia tipográfica con el sitio
+  margin: math.div($separacion, 2) 0; // Margen vertical usando división segura (mitad de $separacion)
+  font-weight: 300; // Peso de fuente ligero para estilo visual
+  text-align: center; // Centra los títulos
 }
 
-h1 {
-  font-size: 3.8rem;
+h1 { // Estilos específicos para h1
+  font-size: 3.8rem; // Tamaño de h1 (≈ 38px)
 }
 
-h2 {
-  font-size: 3.4rem;
+h2 { // Estilos específicos para h2
+  font-size: 3.4rem; // Tamaño de h2 (≈ 34px)
 }
 
-h3 {
-  font-size: 3rem;
+h3 { // Estilos específicos para h3
+  font-size: 3rem; // Tamaño de h3 (≈ 30px)
 }
 
-h4 {
-  font-size: 2.6rem;
+h4 { // Estilos específicos para h4
+  font-size: 2.6rem; // Tamaño de h4 (≈ 26px)
 }
+

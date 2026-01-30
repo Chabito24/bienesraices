@@ -1,55 +1,61 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use 'base/normalize'; // Importa normalize.css para uniformar estilos base entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $amarillo, $verde, $negro)
+@use 'base/mixins' as *; // Importa mixins sin prefijo (ej: tablet)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper del proyecto
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica en esta vista)
+@use 'sass:math'; // Importa módulo math (no se usa aquí, pero no afecta)
+@use 'sass:color'; // Importa módulo color (no se usa aquí, pero no afecta)
 
-@include tablet {
-    .seccion-inferior {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        column-gap: 2rem;
-    }
-}
+@include tablet { // Aplica estilos solo desde el breakpoint "tablet"
+    .seccion-inferior { // Contenedor de la sección inferior (layout en dos columnas)
+        display: grid; // Activa CSS Grid para distribuir columnas
+        grid-template-columns: 2fr 1fr; // Columna principal 2/3 y secundaria 1/3 del ancho
+        column-gap: 2rem; // Separación horizontal entre columnas
+    } // Cierra .seccion-inferior
+} // Cierra bloque tablet
 
-.entrada-blog {
-    margin-bottom: 2rem;
+.entrada-blog { // Contenedor de cada entrada del blog
+    margin-bottom: 2rem; // Separación inferior entre entradas
 
-    @include tablet {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        column-gap: 2rem;
-    }
-    &:last-of-type {
-        margin-bottom: 0;
-    }
-}
+    @include tablet { // En tablet o superior, cambia a layout en grid
+        display: grid; // Activa grid para imagen/preview + texto
+        grid-template-columns: 1fr 2fr; // Columna izquierda 1/3 (ej: imagen) y derecha 2/3 (contenido)
+        column-gap: 2rem; // Separación entre columnas
+    } // Cierra bloque tablet dentro de .entrada-blog
 
-.informacion-meta {
-    span {
-        color: $amarillo;
-    }
-}
+    &:last-of-type { // Selector del último .entrada-blog para ajustar espaciado final
+        margin-bottom: 0; // Elimina el margen inferior en la última entrada
+    } // Cierra &:last-of-type
+} // Cierra .entrada-blog
 
-.texto-entrada {
-    a {
-        color: $negro;
-        margin-top: 3rem;
-        display: block;
-        @include tablet {
-            margin-top: 0;
-        }
-    }
-    h4 {
-        margin: 0;
-        line-height: 1.4;
+.informacion-meta { // Contenedor de la metadata (fecha, autor, etc.)
+    span { // Estilos para spans dentro de la metadata
+        color: $amarillo; // Resalta la metadata en color amarillo
+    } // Cierra span
+} // Cierra .informacion-meta
 
-        &::after {
-            content: '';
-            display:block;
-            width: 15rem;
-            height: 0.3rem;
-            background-color: $verde;
-        }
-    }
+.texto-entrada { // Contenedor del texto principal de la entrada
+    a { // Estilos para links dentro del texto de la entrada
+        color: $negro; // Color del enlace en negro (para mantener look editorial)
+        margin-top: 3rem; // Separa el enlace hacia abajo (en mobile)
+        display: block; // Hace el enlace un bloque para que respete margenes/espaciado
+        @include tablet { // En tablet, ajusta el espaciado del enlace
+            margin-top: 0; // Quita margen superior (ya no es necesario en layout en grid)
+        } // Cierra bloque tablet dentro de a
+    } // Cierra a
+
+    h4 { // Estilos del subtítulo/título de entrada
+        margin: 0; // Elimina margen por defecto
+        line-height: 1.4; // Altura de línea para mejor legibilidad del título
+
+        &::after { // Pseudoelemento decorativo debajo del h4
+            content: ''; // Crea el pseudoelemento (sin texto)
+            display:block; // Lo convierte en bloque para poder definir tamaño
+            width: 15rem; // Ancho de la línea decorativa
+            height: 0.3rem; // Grosor de la línea decorativa
+            background-color: $verde; // Color verde para la línea decorativa
+        } // Cierra &::after
+    } // Cierra h4
     
-}
+} // Cierra .texto-entrada

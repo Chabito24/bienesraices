@@ -1,17 +1,18 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use '../base/variables' as *; // Importa variables globales (colores, tipografías, etc.) sin prefijo
+@use '../base/mixins' as *; // Importa mixins reutilizables sin prefijo (ej: tablet, grid)
+@use 'sass:math'; // Importa módulo math (operaciones matemáticas si se requieren)
+@use 'sass:color'; // Importa módulo color (ajustes de color si se requieren)
 
-.contenido-nosotros {
-    @include tablet {
-        @include grid(2, 2rem);
-        }
-}
+.contenido-nosotros { // Contenedor de la sección "Nosotros"
+    @include tablet { // Aplica estos estilos solo en breakpoint tablet (según el mixin definido)
+        @include grid(2, 2rem); // Crea un grid de 2 columnas con gap de 2rem
+        } // Cierra el bloque del mixin tablet
+} // Cierra el bloque .contenido-nosotros
 
-.texto-nosotros blockquote {
-    font-weight: $black;
-    font-size: 2.2rem;
-    margin: 3rem 0 0 0;
-    padding-left: 1rem 0 3rem 0;
-}
+.texto-nosotros blockquote { // Estilos del blockquote dentro de la sección de texto "Nosotros"
+    font-weight: $black; // Define un peso de fuente fuerte (variable $black)
+    font-size: 2.2rem; // Tamaño de fuente del blockquote
+    margin: 3rem 0 0 0; // Margen superior de 3rem, sin margen en los otros lados
+    padding: 1rem 0 3rem 0; // Aplica padding en 4 lados: arriba 1rem, derecha 0, abajo 3rem, izquierda 0
+
+} // Cierra el bloque del blockquote

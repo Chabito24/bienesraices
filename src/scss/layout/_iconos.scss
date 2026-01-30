@@ -1,14 +1,22 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
+@use 'base/normalize'; // Importa normalize.css para estandarizar estilos entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $grisOscuro, $blanco, $bold)
+@use 'base/mixins' as *; // Importa mixins del proyecto (no se usan aquí, pero quedan disponibles)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica a formularios)
+@use 'sass:math'; // Importa módulo math (no se usa en este bloque)
+@use 'sass:color'; // Importa módulo color (no se usa en este bloque)
+
 
 /* Layout */
 
 
-@include tablet {
-    .iconos-nosotros {
-        @include grid(3, 2rem);
-    }
-}
+@include tablet { // Aplica los estilos solo a partir del breakpoint "tablet" definido en el mixin
+    .iconos-nosotros { // Contenedor de los íconos de la sección "Nosotros"
+        @include grid(3, 2rem); // Crea un grid de 3 columnas con separación (gap) de 2rem
+    } // Cierra .iconos-nosotros
+} // Cierra el bloque del mixin tablet
+
 
 
 

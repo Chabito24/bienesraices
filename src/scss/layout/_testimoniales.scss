@@ -1,34 +1,38 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use 'base/normalize'; // Importa normalize.css para estandarizar estilos base entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $verde, $blanco)
+@use 'base/mixins' as *; // Importa mixins del proyecto (no se usan aquí, pero quedan disponibles)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica a esta sección)
+@use 'sass:math'; // Importa módulo math (no se usa aquí, pero no afecta)
+@use 'sass:color'; // Importa módulo color (no se usa aquí, pero no afecta)
 
-.testimonial {
-    background-color: $verde;
-    font-size: 2.4rem;
-    padding: 2rem;
-    color: $blanco;
-    border-radius: 1.5rem;
+.testimonial { // Contenedor del componente "testimonial" (testimonio)
+    background-color: $verde; // Fondo verde para destacar el bloque del testimonio
+    font-size: 2.4rem; // Tamaño de fuente base del testimonio
+    padding: 2rem; // Espaciado interno del contenedor
+    color: $blanco; // Color de texto por defecto en blanco
+    border-radius: 1.5rem; // Bordes redondeados del contenedor
 
-    blockquote {
-        padding-left: 5rem;
-        position: relative;
+    blockquote { // Estilos del blockquote dentro del testimonio
+        padding-left: 5rem; // Deja espacio a la izquierda para el ícono de comillas
+        position: relative; // Permite posicionar el pseudo-elemento (::before) relativo a este bloque
 
-        &::before {
-            content: '';
-            background-image: url(../img/comilla.svg);
-            background-repeat: no-repeat;
-            width: 6rem;
-            height: 8rem;
-            display: block;
-            position: absolute;
-            left: -2rem;
-        }
-    }
+        &::before { // Pseudo-elemento para colocar el ícono decorativo de comillas
+            content: ''; // Crea el pseudo-elemento (sin texto)
+            background-image: url(../img/comilla.svg); // Ícono de comillas como fondo
+            background-repeat: no-repeat; // Evita que el ícono se repita
+            width: 6rem; // Ancho del ícono
+            height: 8rem; // Alto del ícono
+            display: block; // Lo convierte en bloque para que respete dimensiones
+            position: absolute; // Permite ubicarlo sobre el layout del blockquote
+            left: -2rem; // Desplaza el ícono hacia la izquierda para efecto visual
+        } // Cierra &::before
+    } // Cierra blockquote
 
-    p {
-        text-align: right;
-        color: $blanco;
-    }
+    p { // Estilos para el texto (probablemente autor/firma) dentro del testimonio
+        text-align: right; // Alinea el texto a la derecha
+        color: $blanco; // Asegura color blanco para el párrafo
+    } // Cierra p
 
-}
+} // Cierra .testimonial

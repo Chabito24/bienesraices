@@ -25,7 +25,8 @@
     max-width: 800px;
 }
 
-.alinear-derecha {
-   display: flex;
-    justify-content: flex-end;
+.alinear-derecha { // Clase utilitaria para alinear contenido hacia la derecha dentro de un contenedor
+   display: flex; // Convierte el elemento en contenedor flex para controlar la alineación de sus hijos
+    justify-content: flex-end; // Empuja los elementos hijos hacia el extremo derecho del contenedor (eje principal)
 }
+

@@ -1,53 +1,57 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use 'base/normalize'; // Importa normalize.css para estandarizar estilos entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $grisOscuro, $blanco, $bold)
+@use 'base/mixins' as *; // Importa mixins del proyecto (no se usan aquí, pero quedan disponibles)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica a formularios)
+@use 'sass:math'; // Importa módulo math (no se usa en este bloque)
+@use 'sass:color'; // Importa módulo color (no se usa en este bloque)
 
 
-.formulario {
-    p {
-        font-size: 1.4rem;
-        color: $grisOscuro;
-        margin: 2rem 0 0 0;
+.formulario { // Contenedor principal de estilos para formularios
+    p { // Estilos para párrafos dentro del formulario (mensajes/ayudas)
+        font-size: 1.4rem; // Tamaño de fuente más pequeño para texto auxiliar
+        color: $grisOscuro; // Color oscuro para legibilidad
+        margin: 2rem 0 0 0; // Margen superior de 2rem, sin margen en los demás lados
     }
 
-    legend {
-        font-size: 2rem;
-        color: $grisOscuro;
+    legend { // Estilos para legend (título de un fieldset)
+        font-size: 2rem; // Tamaño del texto del legend
+        color: $grisOscuro; // Color del legend
     }
     
-    label {
-        font-weight: $bold;
-        text-transform: uppercase;
-        display: block;
+    label { // Estilos para etiquetas de campos
+        font-weight: $bold; // Texto en negrita (según variable)
+        text-transform: uppercase; // Convierte el texto a mayúsculas
+        display: block; // Hace que el label ocupe toda la línea
     }
 
-    input:not([type="submit"]), 
-    textarea, 
-    select {
-        padding: 1rem;
-        display: block;
-        width: 100%;
-        background-color: $blanco;
-        border: 1px solid $gris;
-        border-radius: 1rem;
-        margin-bottom: 2rem;
+    input:not([type="submit"]),  // Selecciona inputs excepto el botón submit
+    textarea,  // Selecciona áreas de texto
+    select { // Selecciona listas desplegables
+        padding: 1rem; // Espaciado interno para comodidad al escribir/seleccionar
+        display: block; // Fuerza a que el control ocupe una línea completa
+        width: 100%; // Ocupa todo el ancho disponible del contenedor
+        background-color: $blanco; // Fondo blanco para campos
+        border: 1px solid $gris; // Borde gris suave
+        border-radius: 1rem; // Bordes redondeados
+        margin-bottom: 2rem; // Separación inferior entre campos
     }
 
-    textarea {
-        height: 20rem;
+    textarea { // Estilos específicos para textarea
+        height: 20rem; // Altura fija del área de texto
     }
 
-    .forma-contacto {
-        max-width: 30rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .forma-contacto { // Contenedor para opciones de forma de contacto (ej: radio/labels)
+        max-width: 30rem; // Limita el ancho máximo del bloque
+        display: flex; // Usa flexbox para distribuir elementos en una fila
+        justify-content: space-between; // Separa los elementos dejando espacio entre ellos
+        align-items: center; // Alinea verticalmente al centro
     }
 
-    input[type="radio"] {
-        margin: 0;
-        width: auto;
+    input[type="radio"] { // Estilos específicos para radio buttons
+        margin: 0; // Elimina margen por defecto del navegador
+        width: auto; // Evita que herede width: 100% de la regla general de inputs
     }
 }
 

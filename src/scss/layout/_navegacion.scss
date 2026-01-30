@@ -1,7 +1,11 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:math';
-@use 'sass:color';
+@use 'base/normalize'; // Importa normalize.css para uniformar estilos base entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $amarillo, $verde, $negro)
+@use 'base/mixins' as *; // Importa mixins sin prefijo (ej: tablet)
+@use 'base/globales'; // Importa estilos globales del proyecto
+@use 'base/utilidades'; // Importa utilidades/clases helper del proyecto
+@use 'base/darkMode'; // Importa estilos del modo oscuro (si aplica en esta vista)
+@use 'sass:math'; // Importa módulo math (no se usa aquí, pero no afecta)
+@use 'sass:color'; // Importa módulo color (no se usa aquí, pero no afecta)
 
 /* Layout */
 
@@ -12,30 +16,33 @@
 
    /*dark mode:
     habilita o inhabilita el modo oscuro en la web
-   */.derecha {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   */
+   
+   .derecha { // Contenedor que alinea elementos hacia la derecha (o centro en mobile)
+    display: flex; // Activa flexbox para controlar alineación de los elementos hijos
+    flex-direction: column; // Organiza los hijos en columna (vertical)
+    align-items: center; // En mobile, centra horizontalmente los hijos
 
-    @include tablet {
-        align-items: flex-end;
+    @include tablet { // A partir del breakpoint tablet
+        align-items: flex-end; // Alinea los hijos al extremo derecho del contenedor
     }
 
-    .dark-mode-boton {
-        width: 2rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        filter: invert(99%);
+    .dark-mode-boton { // Estilos del botón/ícono que activa el modo oscuro
+        width: 2rem; // Define el ancho del ícono/botón
+        margin-top: 3rem; // Separación superior (en mobile)
+        margin-bottom: 2rem; // Separación inferior
+        filter: invert(99%); // Invierte el color del ícono (útil sobre fondos oscuros)
 
-        &:hover {
-            cursor: pointer;
+        &:hover { // Al pasar el mouse sobre el ícono/botón
+            cursor: pointer; // Muestra cursor de mano para indicar que es clickeable
         }
 
-        @include tablet {
-            margin-top: 0;
+        @include tablet { // En tablet o superior
+            margin-top: 0; // Quita el margen superior (por ajuste de layout)
         }
-    }
-   }
+    } // Cierra .dark-mode-boton
+} // Cierra .derecha
+
 
 
    /* .barra:

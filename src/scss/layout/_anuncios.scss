@@ -1,77 +1,82 @@
-@use '../base/variables' as *;
-@use '../base/mixins' as *;
-@use 'sass:color';
+@use 'base/normalize'; // Importa normalización CSS para consistencia entre navegadores
+@use 'base/variables' as *; // Importa variables globales sin prefijo (ej: $gris, $verde, $bold)
+@use 'base/mixins' as *; // Importa mixins sin prefijo (ej: tablet, grid)
+@use 'base/globales'; // Importa estilos globales/base del proyecto
+@use 'base/utilidades'; // Importa clases utilitarias reutilizables
+@use 'base/darkMode'; // Importa estilos específicos para modo oscuro
+@use 'sass:math'; // Importa módulo math (no se usa en este archivo, pero no genera error)
+@use 'sass:color'; // Importa módulo color para funciones como color.adjust
 
 
 
-@include tablet {
-    .contenedor-anuncios {
-        @include grid(3, 2rem);
-    }
-}
+@include tablet { // Aplica estilos dentro del breakpoint "tablet" definido en el mixin
+    .contenedor-anuncios { // Contenedor de la grilla de anuncios
+        @include grid(3, 2rem); // Genera un grid de 3 columnas con gap de 2rem
+    } // Cierra .contenedor-anuncios
+} // Cierra el bloque tablet
 
-.anuncio {
-    background-color: color.adjust($gris, $lightness: 5%);
-    border: 1px solid color.adjust($gris, $lightness: -10%);
-    margin-top: 2rem;
+.anuncio { // Tarjeta/contenedor base de cada anuncio
+    background-color: color.adjust($gris, $lightness: 5%); // Aclara $gris un 5% para el fondo del anuncio
+    border: 1px solid color.adjust($gris, $lightness: -10%); // Borde con $gris oscurecido 10% para contraste
+    margin-top: 2rem; // Separación superior entre anuncios
 
-    .contenido-anuncio{
-        padding: 2rem;
-    }
+    .contenido-anuncio{ // Contenedor interno del contenido del anuncio
+        padding: 2rem; // Padding interno para separación del contenido
+    } // Cierra .contenido-anuncio
 
-    h3, p {
-        margin: 0;
-        text-align: center;
-    }
+    h3, p { // Aplica estilos comunes a h3 y p dentro de .anuncio
+        margin: 0; // Elimina márgenes por defecto
+        text-align: center; // Centra el texto
+    } // Cierra el bloque h3, p
 
-    h3 {
-        font-weight: $bold;
-    }
+    h3 { // Estilos específicos del título h3 dentro de .anuncio
+        font-weight: $bold; // Aplica peso de fuente en negrita (según variable)
+    } // Cierra h3
 
-    p {
-        font-weight: 1.2rem;
-    }
+    p { // Estilos específicos de párrafos dentro de .anuncio
+        font-weight: 1.2rem; // ⚠️ Probable error: font-weight no acepta rem; aquí parece que querías font-size: 1.2rem
+    } // Cierra p
 
     
-}
+} // Cierra .anuncio
 
-.precio {
-        color: $verde;
-        font-weight: $bold;
-        font-size: 3rem;
-    }
+.precio { // Estilos del precio (probablemente dentro del anuncio)
+        color: $verde; // Resalta el precio en verde
+        font-weight: $bold; // Precio en negrita
+        font-size: 3rem; // Tamaño grande para el precio
+    } // Cierra .precio
 
-.iconos-caracteristicas {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0; // opcional: quita margen por defecto del ul
+.iconos-caracteristicas { // Lista/contendor de íconos de características (baños, parqueadero, etc.)
+  display: flex; // Muestra los items en fila con flexbox
+  list-style: none; // Quita viñetas de la lista
+  padding: 0; // Elimina padding por defecto de la lista
+  margin: 0;  // Elimina margen por defecto de la lista
 
-    li {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;                
+    li { // Estilos para cada item de la lista
+        flex: 1; // Cada item ocupa el mismo ancho disponible
+        display: flex; // Convierte el item en contenedor flex
+        justify-content: center; // Centra horizontalmente el contenido
+        align-items: center; // Centra verticalmente el contenido
+        gap: 1rem; // Separación entre ícono y texto
 
-        img {
-            flex: 0 0 3rem;
-            margin: 0;
-        }
+        img { // Estilos del ícono/imagen dentro del li
+            flex: 0 0 3rem; // Ancho fijo de 3rem (no crece, no se encoge)
+            margin: 0; // Elimina margen por defecto
+        } // Cierra img
 
-        p {
-        font-weight: $black;
-        font-size: 1.4rem;
-        justify-content: center;
-        align-items: center;
+        p { // Texto descriptivo (número/label) dentro del item
+        font-weight: $black; // Peso fuerte/negro (según variable)
+        font-size: 1.4rem; // Tamaño del texto del item
+        justify-content: center; // ⚠️ No tiene efecto en <p> si no es flex; solo aplica en contenedores flex
+        align-items: center; // ⚠️ No tiene efecto en <p> si no es flex; solo aplica en contenedores flex
 
-        }
-  }
-}
+        } // Cierra p
+  } // Cierra li
+} // Cierra .iconos-caracteristicas
 
-.resumen-propiedad {
+.resumen-propiedad { // Contenedor de resumen/descripción de la propiedad
 
-  p.justify {
-    text-align: justify;
-  }
-}
+  p.justify { // Párrafos con clase .justify dentro del resumen
+    text-align: justify; // Justifica el texto
+  } // Cierra p.justify
+} // Cierra .resumen-propiedad
