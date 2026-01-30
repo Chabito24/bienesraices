@@ -1,0 +1,44 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+@use 'sass:math';
+@use 'sass:color';
+
+.dark-mode {
+    background-color: color.adjust($grisOscuro, $lightness: 5%);
+
+    p {
+        color: $blanco;
+    }
+
+    a, h1, h2, h3, h4, blockquote {
+        color: $gris;
+    }
+
+    .anuncio {
+        background-color: color.adjust($grisOscuro, $lightness: 3%);
+        border: 1px solid $grisOscuro;
+
+        .precio {
+            color: $verde;
+        }
+        .icono {
+        filter: invert(70%);
+    }
+    }
+
+    .formulario {
+        label,
+        legend,
+        p {
+            color: $gris;
+        }
+
+        input:not([type="submit"]), 
+        textarea, 
+        select {
+            background-color: color.adjust($grisOscuro, $lightness: -5%);
+            border: 1px solid $grisOscuro;
+            color: $blanco;
+        }
+    }
+}

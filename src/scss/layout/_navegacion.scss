@@ -10,7 +10,35 @@
    BARRA (LOGO + NAVEGACIÓN)
    ================================ */
 
-/* .barra:
+   /*dark mode:
+    habilita o inhabilita el modo oscuro en la web
+   */.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton {
+        width: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        filter: invert(99%);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+   }
+
+
+   /* .barra:
    Contenedor que normalmente incluye el logo y el menú de navegación */
 .barra {
     /* Activa Flexbox para alinear elementos */
@@ -32,6 +60,8 @@
         /* Se separan al máximo:
            logo a la izquierda y menú a la derecha */
         justify-content: space-between;
+
+        align-items: flex-end; 
     }
 }
 
@@ -45,7 +75,8 @@
 
     visibility: hidden;
     opacity: 0;
-    transition: visibility .5s ease-in-out, opacity 0.5s linear;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity 0.5s linear, height 0.5s linear;
 
     /* Desde tablet en adelante ajusta la disposición del menú */
     @include tablet {
@@ -67,7 +98,7 @@
         text-decoration: none;
 
         /* Tamaño de letra más grande en móvil */
-        font-size: 2.2rem;
+        font-size: 2rem;
 
         /* Hace que el link sea un bloque (más fácil de tocar en móvil) */
         display: block;
@@ -118,4 +149,5 @@
 
     visibility: visible;
     opacity: 1;
+    height: auto;
 }
